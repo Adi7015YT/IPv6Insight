@@ -1,0 +1,17 @@
+# render.yaml
+# Configuration for deploying a Next.js app to Render.
+# https://render.com/docs/deploy-nextjs-app
+
+services:
+  - type: web
+    name: ipv6insight
+    env: node
+    plan: free # Or your desired plan
+    buildCommand: 'npm install && npm run build'
+    startCommand: 'npm start'
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NEXT_PUBLIC_HOSTNAME # Optional: Set your Render URL here for production checks
+        value: ''
